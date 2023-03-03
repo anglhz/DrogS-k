@@ -25,42 +25,44 @@
         });
     </script>
     <body>
-        {% if result.empty %}
-        <h1>Resultatet för "{{ search_term }}" gav inget träff!</h1>
-            <p>Sök på läkemedlet genom<a href="https://www.fass.se/LIF/result?query={{search_term}}">FASS</a>.</p>
-            <p>Finns inte läkemedlet i DrogSöks databas kan du skicka rapport kring läkemedlet "{{ search_term }}".</p>
-        {% else %}
-        <h1>Resultat</h1>
-        <h2>{{ search_term }}</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Läkemedel</th>
-                        <th>Aktiv Substans</th>
-                        <th>Receptstatus</th>
-                        <th>Klassificering</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for index, row in result.iterrows() %}
+            {% if result.empty %}
+                <h1>Resultatet för "{{ search_term }}" gav inget träff!</h1>
+        <div class="container">
+                <p>Sök på läkemedlet genom<a href="https://www.fass.se/LIF/result?query={{search_term}}">FASS</a>.</p>
+                <p>Finns inte läkemedlet i DrogSöks databas kan du skicka rapport kring läkemedlet "{{ search_term }}".</p>
+            {% else %}
+            <h1>Resultat</h1>
+            <h2>{{ search_term }}</h2>
+                <table>
+                    <thead>
                         <tr>
-                            <td>{{ row[0] }}</td>
-                            <td>{{ row[1] }}</td>
-                            <td>{{ row[2] }}</td>
-                            <td>{{ row[3] }}</td>
+                            <th>Läkemedel</th>
+                            <th>Aktiv Substans</th>
+                            <th>Receptstatus</th>
+                            <th>Klassificering</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% endif %}
-        <div>
-            <form method="POST" action="{{ url_for('search') }}">
-                <input type="text" name="search" placeholder="Sök läkemedel">
-                <input type="submit" class="submit-button-1" value="Sök">
-                {% if result.empty %}
-                    <button type="button" class="submit-button-2" name ="search_term" id="send-email-btn">Skicka Rapport</button>
-                {% endif %}   
-              </form>
+                    </thead>
+                    <tbody>
+                        {% for index, row in result.iterrows() %}
+                            <tr>
+                                <td>{{ row[0] }}</td>
+                                <td>{{ row[1] }}</td>
+                                <td>{{ row[2] }}</td>
+                                <td>{{ row[3] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+            <div>
+                <form method="POST" action="{{ url_for('search') }}">
+                    <input type="text" name="search" placeholder="Sök läkemedel">
+                    <input type="submit" class="submit-button-1" value="Sök">
+                    {% if result.empty %}
+                        <button type="button" class="submit-button-2" name ="search_term" id="send-email-btn">Skicka Rapport</button>
+                    {% endif %}   
+                </form>
+            </div>
         </div>
     </body>
     <footer>
