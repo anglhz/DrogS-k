@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Polisens Läkemedelsstöd - Sök Läkemedel</title>
+        <title>DrogSök.se - Sök Läkemedel</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
         <h1>Sök efter narkotikaklassat läkemedel</h1>
         <div class="container">
-            <p>Programmet åsyftar sig främst åt personal som arbetar i yttre tjänst inom polisen. Det ska enkelt och tydligt visa om läkemedel som påträffas är narkotikaklassat eller inte.</p>
+            <p>Programmet syftar sig främst åt personal som arbetar i yttre tjänst inom polisen.</p>
+            <p>Det ska enkelt och tydligt visa om läkemedel som påträffas är narkotikaklassat eller inte.</p>
             <form action="{{ url_for('search') }}" method="post">
                 <input type="text" id="search" name="search" placeholder="Sök läkemedel" required>
                 <input type="submit" class="submit-button-1"  value="Sök">
@@ -17,6 +18,6 @@
     </body>
     <footer>
         <p><a href="{{ url_for('index') }}">Sök</a><a href="{{ url_for('usage') }}">Användning</a> <a href="{{ url_for('about') }}">Om programmet</a> <a href="{{ url_for('mediciner') }}">Läkemedelslista</a> <a href="{{ url_for('contact') }}">Kontakt/Feedback</a></p>
-        <p>Copyright &copy; 2023. Alla rättigheter förbehålls. Version 1.0.1</p>
+        <p>Copyright &copy; 2023. Alla rättigheter förbehålls. Version 1.2.1</p>
     </footer>
 </html>

@@ -7,6 +7,23 @@
 <body>
   <h1>Om programmet</h1>
     <div class="container">
+      <h2>Nyheter</h2>
+      <p class="paragraf"><b>2023-03-03</b></p>
+      <p class="paragraf">Programmet har uppdaterats från 1.1.1 till 1.2.1.<br><br></p>
+      <p class="paragraf">De upptaderingar som gjorts finns listade nedan:<br><br></p>
+        <ul class="paragraf">
+          <li>
+            Uppdaterad databas med läkemedel som är både klassat som narkotika och inte.
+          </li>
+          <li>
+            Möjlighet att leta direkt i FASS.
+          </li>
+          <li>
+            Möjlighet att skicka träffrapport.
+          </li>
+        </ul>
+      </div>
+    <div class="container">
       <h2>Funktioner</h2>
       <p class="paragraf">Programmet är baserat på en databas med information om läkemedel som hämtas från <a class="paragraf" href="https://www.lakemedelsverket.se">www.läkemedelsverket.se.</a><br><br></p>
       <p class="paragraf">Databasen är för närvarande inte automatiserad och uppdateras inte automatiskt. Därför kan det förekomma fel om du söker efter ett relativt nytt läkemedel som ännu inte finns i databasen. Det är viktigt att notera detta för att undvika förväxlingar eller missuppfattningar om läkemedlets klassificering.<br><br></p>
@@ -15,6 +32,6 @@
   </body>
   <footer>
     <p><a href="{{ url_for('index') }}">Sök</a><a href="{{ url_for('usage') }}">Användning</a> <a href="{{ url_for('about') }}">Om programmet</a> <a href="{{ url_for('mediciner') }}">Läkemedelslista</a> <a href="{{ url_for('contact') }}">Kontakt/Feedback</a></p>
-    <p>Copyright &copy; 2023. Alla rättigheter förbehålls. Version 1.0.1</p>
+    <p>Copyright &copy; 2023. Alla rättigheter förbehålls. Version 1.2.1</p>
 </footer>
 </html>
