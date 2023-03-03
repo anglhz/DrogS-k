@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Polisens Läkemedelsstöd - Resultat</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <script>
+        $(document).ready(function() {
+          $('#send-email-btn').click(function() {
+            $.ajax({
+              type: "POST",
+              url: "{{ url_for('send_email_route') }}",
+              data: {
+                search_term: '{{ search_term }}',
+              },
+              success: function(response) {
+                alert(response);
+              },
+              error: function(xhr, status, error) {
+                alert(error);
+              }
+            });
+          });
+        });
+    </script>
+    <body>
+        {% if result.empty %}
+        <h1>Resultatet för "{{ search_term }}" gav inget träff!</h1>
+            <p>Sök på läkemedlet genom<a href="https://www.fass.se/LIF/result?query={{search_term}}">FASS</a>.</p>
+            <p>Finns inte läkemedlet i DrogSöks databas kan du skicka rapport kring läkemedlet "{{ search_term }}".</p>
+        {% else %}
+        <h1>Resultat</h1>
+        <h2>{{ search_term }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Läkemedel</th>
+                        <th>Aktiv Substans</th>
+                        <th>Receptstatus</th>
+                        <th>Klassificering</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in result.iterrows() %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <div>
+            <form method="POST" action="{{ url_for('search') }}">
+                <input type="text" name="search" placeholder="Sök läkemedel">
+                <input type="submit" class="submit-button-1" value="Sök">
+                {% if result.empty %}
+                    <button type="button" class="submit-button-2" name ="search_term" id="send-email-btn">Skicka Rapport</button>
+                {% endif %}   
+              </form>
+        </div>
+    </body>
+    <footer>
+        <p><a href="{{ url_for('index') }}">Sök</a><a href="{{ url_for('usage') }}">Användning</a> <a href="{{ url_for('about') }}">Om programmet</a> <a href="{{ url_for('mediciner') }}">Läkemedelslista</a> <a href="{{ url_for('contact') }}">Kontakt/Feedback</a></p>
+        <p>Copyright &copy; 2023. Alla rättigheter förbehålls. Version 1.0.1</p>
+    </footer>
+</html>

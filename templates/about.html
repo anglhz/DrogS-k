@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DrogSök.se - Om Programmet</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Om programmet</h1>
+    <div class="container">
+      <h2>Funktioner</h2>
+      <p class="paragraf">Programmet är baserat på en databas med information om läkemedel som hämtas från <a class="paragraf" href="https://www.lakemedelsverket.se">www.läkemedelsverket.se.</a><br><br></p>
+      <p class="paragraf">Databasen är för närvarande inte automatiserad och uppdateras inte automatiskt. Därför kan det förekomma fel om du söker efter ett relativt nytt läkemedel som ännu inte finns i databasen. Det är viktigt att notera detta för att undvika förväxlingar eller missuppfattningar om läkemedlets klassificering.<br><br></p>
+      <p class="paragraf">Vid en sökning letas värdet upp i databasen. Om sökningen matchar eller liknar ett läkemedel som finns listat i databasen kommer resultatet visa att läkemedlet är narkotikaklassat. För tillfället ger den enbart träff på just narkotikaklassade läkemedel. Vilket i sin tur innebär att du kan skriva vad som helst i sökrutan. Om det inte matchar något i databasen visar programmet att det ej är narkotika.</p>
+    </div>  
+  </body>
+  <footer>
+    <p><a href="{{ url_for('index') }}">Sök</a><a href="{{ url_for('usage') }}">Användning</a> <a href="{{ url_for('about') }}">Om programmet</a> <a href="{{ url_for('mediciner') }}">Läkemedelslista</a> <a href="{{ url_for('contact') }}">Kontakt/Feedback</a></p>
+    <p>Copyright &copy; 2023. Alla rättigheter förbehålls. Version 1.0.1</p>
+</footer>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polisens Läkemedelsstöd - Användning</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Användning av läkemedelsökprogrammet</h1>
+    <div class="container">
+        <p>Följ dessa steg för att använda läkemedelsökprogrammet:</p>
+        <ol>
+            <li>Ange ett sökord i sökinputen.</li>
+            <li>Klicka på "Sök"-knappen för att skicka formuläret.</li>
+            <li>Visa sökresultaten på resultatsidan.</li>
+        </ol>
+        <p >Du kan upprepa sökningen så många gånger du vill genom att ange ett nytt sökord och klicka på "Sök"-knappen igen.</p>
+        <p>Programmet är inte 100% rättssäkert och utesluter inte att läkemedlet som du sökt på INTE är narkotikaklassat. Det är enbart ett hjälpmedel.</p>
+        <p>Enskild polisman står för sin egna bedömning om läkemedlet ska tas i beslag eller ej. Se gärna på 1177 om misstänkt har recept.</p>
+    </div>
+</body>
+<footer>
+    <p><a href="{{ url_for('index') }}">Sök</a><a href="{{ url_for('usage') }}">Användning</a> <a href="{{ url_for('about') }}">Om programmet</a> <a href="{{ url_for('mediciner') }}">Läkemedelslista</a> <a href="{{ url_for('contact') }}">Kontakt/Feedback</a></p>
+    <p>Copyright &copy; 2023. Alla rättigheter förbehålls. Version 1.0.1</p>
+</footer>
+</html>
