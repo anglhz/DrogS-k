@@ -6,7 +6,7 @@ import smtplib
 app = Flask(__name__)
 
 # Load the excel file as a DataFrame
-df = pd.read_excel('static/database/med_list.xlsx')
+df = pd.read_excel('/var/www/drogsok_root/static/database/med_list.xlsx')
 
 # Define a function to search for matches in the first and second columns
 def search_med_list(df, word):
@@ -70,7 +70,7 @@ def about():
 
 @app.route("/mediciner")
 def mediciner():
-    with open('static/database/med_list.xlsx', 'r') as file:
+    with open('/var/www/drogsok_root/static/database/med_list.xlsx', 'r') as file:
         content = file.read()
     return content
 
@@ -92,5 +92,5 @@ def send_email_route():
     
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
     
